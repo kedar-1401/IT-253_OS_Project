@@ -47,10 +47,6 @@ Follow the on-screen instructions to perform these operations.
 
 Contributions to the project are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request or open an issue.
 
-## Acknowledgements
-
-The implementation of the Splay Tree data structure used in this project is based on the principles described in various computer science literature.
-
 ## Contact
 
 For any inquiries or questions, please contact [SANKET BABAR] at [sanketbabar344@gmail.com].
