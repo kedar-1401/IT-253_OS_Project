@@ -10,6 +10,24 @@ This project implements a cache management system using Splay Trees. It allows e
 - Efficient retrieval of values based on keys
 - Insertion of new key-value pairs
 - Eviction of the least recently used entry when the cache is full
+- Implementation is provided for both single threaded as well as multithreaded environment
+  
+## Problems with first implementation (single threaded environment)
+```
+ Concurrency Conflicts:
+```
+ When multiple threads concurrently perform splaying operations (like insertion, retrieval, or deletion) on the same splay tree, they may     conflict, leading to inconsistent tree structure or incorrect results.
+ ```
+ Balancing Trade-off:
+```
+Splay trees rely on frequent reorganization for optimal performance. In a multi-threaded environment, we need to strike a balance between 
+  allowing enough reorganization to maintain the tree's efficiency and preventing excessive reorganization that might negatively impact performance due to 
+  synchronization.
+  ```
+ Contention:
+```
+When multiple threads are frequently modifying the splay tree (e.g., due to cache updates), they may contend for access to the tree's root or other 
+  critical nodes, leading to contention and slowdowns.
 
 ## Terms you should comfortable with -
 - cache block - The basic unit for cache storage. May contain multiple
@@ -28,6 +46,7 @@ The project requires the following dependencies:
 - C++ compiler supporting C++11 or higher
 - Standard Template Library (STL)
 - `ctime` library for timestamp management
+- `thread`,`mutex`,`crono` and `condition-variable` libraries for providing and handelling multithreaded environment.
 
 ## Getting Started
 
@@ -45,7 +64,7 @@ The program provides a command-line interface for interacting with the cache. It
 5. Exit: Terminates the program.
 Follow the on-screen instructions to perform these operations.
 
-## Some results
+## Single threaded environmenmnt results
  ![Screenshot 2023-08-12 164211](https://github.com/Sanketsb17/Cache-management-using-splay-trees/assets/112432663/15729165-3482-4354-a92f-b15fe4438574)
 
 - 1)Creating Cache of size 3.
@@ -59,6 +78,12 @@ Follow the on-screen instructions to perform these operations.
 - 6)After accessing it Adding new entry in Cache.
 - 7)Now printing Cache again.
 - 8)least recently accessed entry got evicted and recently accessed entry in still there.
+
+## Multithreaded environment results
+```
+Without concurrency control
+```
+Created 3 threads
 
 ## Contributing
 
