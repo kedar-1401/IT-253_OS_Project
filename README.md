@@ -83,7 +83,17 @@ Follow the on-screen instructions to perform these operations.
 ```
 Without concurrency control
 ```
-Created 3 threads
+Created 3 threads thread1 is adding 3 elements in cache.
+thread2 is trying to get elements from cache(print).
+thread3 is trying to add 1 element in cache.
+
+```
+Result
+```
+![image](https://github.com/Sanketsb17/Cache-management-using-splay-trees/assets/112432663/4aa8762c-98de-403a-8cc3-86b15c1994ef)
+
+
+
 
 ## Contributing
 
