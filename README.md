@@ -91,6 +91,14 @@ thread3 is trying to add 1 element in cache.
 Result
 ```
 ![image](https://github.com/Sanketsb17/Cache-management-using-splay-trees/assets/112432663/4aa8762c-98de-403a-8cc3-86b15c1994ef)
+![image](https://github.com/Sanketsb17/Cache-management-using-splay-trees/assets/112432663/5d552d7a-ffc3-4425-9653-8925ae1cbb0b)
+
+Inconsistent result 
+
+```
+Concurrency control using Mutex
+```
+
 
 
 
