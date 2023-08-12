@@ -90,15 +90,15 @@ thread3 is trying to add 1 element in cache.
 ```
 Result
 ```
+Inconsistent results in different environments.
 ![image](https://github.com/Sanketsb17/Cache-management-using-splay-trees/assets/112432663/4aa8762c-98de-403a-8cc3-86b15c1994ef)
 ![image](https://github.com/Sanketsb17/Cache-management-using-splay-trees/assets/112432663/5d552d7a-ffc3-4425-9653-8925ae1cbb0b)
-
-Inconsistent result 
 
 ```
 Concurrency control using Mutex
 ```
-
+Consistent results in different environments.
+![Screenshot 2023-08-12 165703](https://github.com/Sanketsb17/Cache-management-using-splay-trees/assets/112432663/96140bc2-280a-49b8-82db-fea40b567ab6)
 
 
 
