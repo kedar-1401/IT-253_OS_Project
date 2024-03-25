@@ -211,7 +211,7 @@ public:
             return;
         }
 
-        if (cacheMap.size() >= capacity) {
+        if(cacheMap.size() >= capacity) {
             // Find the least recently used entry by traversing the entire tree
             CacheEntry* lruEntry = findLeastRecentlyUsed(root);
             root = erase(root, lruEntry->key);
@@ -294,10 +294,30 @@ int main() {
 
             {
                 std::lock_guard<std::mutex> lock(splayMutex);
+                // operationsCompleted = false;
                 cache.put(key, value);
             } // Unlock the mutex after the splaying operation
 
-            std::this_thread::sleep_for(std::chrono::milliseconds(500)); // Simulate work
+            std::this_thread::sleep_for(std::chrono::milliseconds(800)); // Simulate work
+        }
+
+        std::lock_guard<std::mutex> lock(splayMutex);
+        operationsCompleted = true;
+        cv.notify_one(); // Notify that both operations are completed
+    };
+
+    auto addThreeRandomPairs2 = [&]() {
+        for (int i = 3; i < 6; i+=2) {
+            string key = "key" + to_string(i);
+            string value = "value" + to_string(i);
+
+            {
+                std::lock_guard<std::mutex> lock(splayMutex);
+                // operationsCompleted = false;
+                cache.put(key, value);
+            } // Unlock the mutex after the splaying operation
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(800)); // Simulate work
         }
 
         std::lock_guard<std::mutex> lock(splayMutex);
@@ -322,7 +342,7 @@ int main() {
 
     // Create threads for the specified operations
     std::thread thread1(addThreeRandomPairs);
-    std::thread thread2(addOneRandomPair);
+    std::thread thread2(addThreeRandomPairs2 );
 
     // Wait for both threads to finish
     thread1.join();
